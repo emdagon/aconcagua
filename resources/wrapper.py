@@ -14,8 +14,6 @@ def awaitMessage():
     while True:
         line = sys.stdin.readline().strip()
         if line:
-            # with open("/Users/emdagon/dev/test.log", "a") as fd:
-            #     fd.write("line input: %s\n" % line)
             if line == "end!":
                 break
             msg = msg + line

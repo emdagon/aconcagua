@@ -7,11 +7,6 @@ end
 
 def avg(*n)
   result = sum(*n) / n.length
-
-  File.open("/Users/emdagon/dev/test.log", "a") do |f|
-    f.write("avg of #{n}: #{result}\n")
-  end
-
   result
 end
 

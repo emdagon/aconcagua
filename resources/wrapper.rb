@@ -53,15 +53,11 @@ def run
     end
 
     puts response.to_json
+    puts "end!"
     STDOUT.flush
 
   end
 
-end
-
-
-File.open("/Users/emdagon/dev/test.log", "a") do |f|
-  f.write("run ruby!\n")
 end
 
 run()

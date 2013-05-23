@@ -30,7 +30,7 @@ abstract class ShellProcessWorker(masterLocation: ActorPath) extends Worker(mast
       msg match {
         case Command(module: String, function: String, arguments: List[String]) => {
           process.write("""{"module": "%s", "function": "%s", "arguments": [%s]}""".format(module, function, arguments.mkString(", "))) onComplete {
-            case Failure(t) => log.warning("FAILURE! " + t.toString)
+            case Failure(t) => log.warning("FAILURE! {}", t.toString)
             case Success(v) => response(Result(v))
           }
         }

@@ -41,7 +41,7 @@ object AconcaguaWorkers extends App {
 
   for (n <- 1 to 3) {
     system.actorOf(Props(new PythonWorker(mp)))
-    // system.actorOf(Props(new RubyWorker(mp)))
+    system.actorOf(Props(new RubyWorker(mp)))
   }
   //val w3 = system.actorOf(Props(new PythonWorker(mp)))
 

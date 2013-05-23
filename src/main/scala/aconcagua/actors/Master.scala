@@ -79,21 +79,6 @@ class Master extends Actor with ActorLogging {
       log.info("{} Worker created: {}", module, sender)
       registerWorker(module)
 
-    // DEPRECATED!
-    // A worker wants more work.  If we know about him, he's not
-    // currently doing anything, and we've got something to do,
-    // give it to him.
-    //    case WorkerRequestsWork =>
-    //      log.info("Worker requests work: {}", sender)
-    //      val worker = getWorkerByRef(sender)
-    //      getWork(worker.module) match {
-    //        case (workSender: ActorRef, work) =>
-    //          workers += (sender -> WorkerRef(worker.module, sender, Some(work, workSender)))
-    //          sender ! WorkToBeDone(work)
-    //        case _ => sender ! NoWorkToBeDone
-    //      }
-
-
     // Worker has completed its work and we can clear it out
     case WorkIsDone(result) =>
       log.info("Work is complete.  Sending Result to the requester: {}.", result)
@@ -144,14 +129,10 @@ class Master extends Actor with ActorLogging {
         case x =>
           // We have no idle worker for this module, so let's queue this work
           log.info("Queueing {}, ", work)
-          log.info("What is in workers? {}", workers)
-          log.info("What is in x? {}", x)
           queueWork(module, sender, work)
       }
-      log.info("workers: {}", workers)
-      log.info("workQueues: {}", workQueues)
 
     case wtf =>
-      log.info("CARAJO! {}", wtf)
+      log.info("WFT! {}", wtf)
   }
 }
