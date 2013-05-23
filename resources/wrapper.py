@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import os.path
 import json
 import traceback
 
@@ -61,8 +62,5 @@ def run():
         print json_encode(response)
         print "end!"
         sys.stdout.flush()
-
-with open("/Users/emdagon/dev/test.log", "a") as fd:
-    fd.write("run python!\n")
 
 run()
