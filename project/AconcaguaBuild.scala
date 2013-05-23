@@ -15,6 +15,6 @@ object AconcaguaBuild extends Build {
       libraryDependencies += "com.typesafe.akka" %% "akka-kernel" % "2.1.2",
       libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.1.2",
       libraryDependencies += "com.typesafe.akka" %% "akka-remote" % "2.1.2"
-  )
+    )
   )
 }

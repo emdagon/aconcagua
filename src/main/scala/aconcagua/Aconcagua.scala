@@ -62,7 +62,7 @@ object AconcaguaTasks extends App {
 
   println(ma)
 
-  for (n <- List.fill(10)(Random.nextInt().toString)) {
+  for (n <- List.fill(100)(Random.nextInt().toString)) {
     ma ? Command("samples", "avg", List("2", "4", n)) onComplete {
       case r => println(r)
     }

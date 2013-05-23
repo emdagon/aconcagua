@@ -2,3 +2,4 @@
 .idea_modules
 aconcagua.iml
 target/*
+project/target
